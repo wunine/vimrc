@@ -10,12 +10,16 @@ function install_rustup() {
     echo "rustup ${version} installed"
 }
 function install_toolchain() {
+    echo "add component rust-src"
     rustup component add rust-src
+    echo "install racer"
     rustup install nightly
-    rustup component add racer +nightly
+    cargo install racer +nightly
+    echo "add component rustfmt"
     rustup component add rustfmt
 }
 function install_plugin() {
+    echo "install vim plugins"
     vim +PlugInstall +qall
 }
 
